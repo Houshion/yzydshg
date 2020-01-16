@@ -1,0 +1,5 @@
+<import src="../wxParse/wxParse.wxml" />
+<view class="ptb20 mlr24">
+    <!-- <view class="bw plr20 ptb30 border-r1 font14 col3">{{wxParseData:content.nodes}}</view> -->
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>

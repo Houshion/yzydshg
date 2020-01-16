@@ -1,0 +1,25 @@
+@import '/css/main.wxss';
+.list_logo{
+    width: 150rpx;
+    height: 150rpx;
+}
+.list_logo image{
+    width: 150rpx;
+    height: 150rpx;
+}
+.h_btn{
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 42rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    border: 1px solid #e5e5e5;
+}
+.add_goods_btn{
+    width: 130rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 44rpx;
+    text-align: center;
+}

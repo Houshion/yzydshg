@@ -1,0 +1,50 @@
+<wxs module="dateFr" src="../../../utils/filter/dateStr.wxs"></wxs>
+<import src="../../user/wxParse/wxParse" />
+<view id="invite" class="ptb30 plr30">
+    <view class="border-r2 bw ptb30 plr30">
+        <view class="tac font14 fontb">{{activeData.name}}</view>
+        <image class="img" src="{{activeData.img}}" mode="widthFix"></image>
+        <!-- <image class="img mtb30" src="../../../img/bg1.png" mode="widthFix"></image> -->
+        <view class="reward font14">
+            <view class="title">活动奖励</view>
+            <view class="rewardList flex_sb col9 mt15 font12" wx:for="{{activeData.goods}}" wx:key>
+                <view>{{item.goods_title}}({{item.num}}份,兑换有效期{{item.eday}}天)</view>
+                <view>￥{{item.price}}</view>
+            </view>
+            <!-- <view class="tae mt20 color7">剩余数量：{{activeData.surplus}}份</view> -->
+        </view>
+        <view class="progress font14">
+            <view class="title mt40 mb20">活动进度</view>
+            <view class="font12">
+                <view class="rewardList flex_j col9 mt15 font12">
+                    <view wx:if="{{activeData.more>0}}">
+                        还差
+                        <span class="color2 font16 fontb">{{activeData.more}}</span>
+                        人即可完成任务，记录努力！
+                    </view>
+                    <view wx:else>恭喜！已经成功完成任务啦！</view>
+                </view>
+                <view class="people">
+                    <view class="personList" wx:for="{{activeData.joiner}}">
+                        <view class="joiner" wx:if="{{item.img}}">
+                            <image class="" src="{{item.img}}" mode="widthFix"></image>
+                        </view>
+                        <view class="nobody" wx:else>?</view>
+                    </view>
+                </view>
+                <view class="color2 fontb tac" wx:if="{{activeData.etime>0 && activeData.more>0}}">
+                    剩余时间：{{dateFr.getDate(activeData.etime,'cn')}}
+                </view>
+            </view>
+        </view>
+        <view class="rule font14">
+            <view class="title mt40 mb20">活动规则</view>
+            <view class="font12">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            </view>
+        </view>
+        <button class="btn" open-type="share">分享</button>
+        <!-- <view class="btn" bind:tap="share" wx:if="{{activeData.etime>0 && activeData.more>0}}">分享</view> -->
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent" />

@@ -1,0 +1,30 @@
+@import '/css/main.wxss';
+
+.code {
+    border-radius: 20rpx;
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.dashed {
+    height: 1px;
+    border-top: 1px #bcbcbc dashed;
+    margin: 0 20rpx
+}
+
+.code .num {
+    color: #000000;
+    font-weight: bold;
+    font-size: 50rpx
+}
+
+.goods_logo_box {
+    width: 120rpx;
+    height: 120rpx;
+    background-color: #fafafa;
+}
+
+.goods_logo_box image {
+    width: 120rpx;
+    height: 120rpx;
+}

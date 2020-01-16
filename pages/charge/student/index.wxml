@@ -1,0 +1,24 @@
+<view class="pt20 plr24 ">
+    <view class="font14 bw border-r1 ptb40 plr40 flex mb20">
+        <view class="flex_a flex1">
+            <image src="/img/coach_ic1.png" class="coach_ic mr20"></image>
+            <text class="col9 mr20">学员数</text>
+            <text class="col3">{{student_num}}人</text>
+        </view>
+        <view class="flex_a flex1" bindtap="codeShow">
+            <image src="/img/coach_ic2.png" class="coach_ic mr20"></image>
+            <text class="col9 mr20">邀请码</text>
+            <text class="col3">{{coach_code}}</text>
+        </view>
+    </view>
+    <block wx:for='{{list}}' wx:key>
+        <view class="font14 h100 flex_a bw border-r1 ptb40 plr40 flex_sb mb20">
+            <text class="col3">{{item.user_name}}</text>
+            <text class="col9">{{item.ctime}}</text>
+        </view>
+    </block>
+    <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+</view>
+<view class="qrCodeBox" wx:if="{{is_show}}" bindtap="codeShow">
+    <image src="{{shareImg}}"></image>
+</view>

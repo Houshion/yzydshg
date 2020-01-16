@@ -1,0 +1,97 @@
+<view class='bgf5 tab_box flex_a pos_f_t'>
+    <view class="swiper-tab">
+        <block wx:for='{{tab_list}}' wx:key>
+            <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">
+                {{item}}
+            </view>
+        </block>
+    </view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 55 }}px" bindchange="bindChange">
+    <swiper-item class="swiper-one" style='overflow-y:scroll;'>
+        <view wx:if="{{currentTab == 0}}">
+            <block wx:for='{{list}}' wx:key>
+                <view class="mb20">
+                    <view class="font14 h80 flex_sb bw plr24">
+                        <text class="col9">{{item.code_title}}</text>
+                        <text class="color4">未兑换</text>
+                    </view>
+                    <view class="ptb30 plr24 flex bgfa">
+                        <view class="goods_logo_box">
+                            <image src="{{item.img}}"></image>
+                        </view>
+                        <view class="ml40 flex_sbc flex1">
+                            <view class="font14 col3">{{item.goods_title}}</view>
+                            <view class="font12 col9">有效期：{{item.etime}}</view>
+                        </view>
+                        <view class="font12 col9 flex_a">
+                            <text>x{{item.num}}</text>
+                        </view>
+                    </view>
+                    <navigator class="font14 col3 h80 lh80 tae plr24 bw bdt" url="/pages/user/exchange_code/detail/index?id={{item.id}}">
+                        <view class="money_btn font12 col3 btn">兑换码</view>
+                    </navigator>
+                    <!-- <view class="font14 col3 h80 lh80 tae plr24 bw bdt">
+                        <view class="money_btn font12 col3 btn" bindtap="cash_btn" data-order_id="{{item.id}}">
+                            兑换码
+                        </view>
+                    </view> -->
+                </view>
+            </block>
+            <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+        </view>
+    </swiper-item>
+    <swiper-item class="swiper-one" style='overflow-y:scroll;'>
+        <view wx:if="{{currentTab == 1}}">
+            <block wx:for='{{list}}' wx:key>
+                <view class="mb20">
+                    <view class="font14 h80 flex_sb bw plr24">
+                        <text class="col9">{{item.code_title}}</text>
+                        <text class="col9">已使用</text>
+                    </view>
+                    <view class="ptb30 plr24 flex bgfa">
+                        <view class="goods_logo_box">
+                            <image src="{{item.img}}"></image>
+                        </view>
+                        <view class="ml40 flex_sbc flex1">
+                            <view class="font14 col3">{{item.goods_title}}</view>
+                            <view class="font12 col9">有效期：{{item.etime}}</view>
+                        </view>
+                        <view class="font12 col9 flex_a">
+                            <text>x{{item.num}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+        </view>
+    </swiper-item>
+    <swiper-item class="swiper-one" style='overflow-y:scroll;'>
+        <view wx:if="{{currentTab == 2}}">
+            <block wx:for='{{list}}' wx:key>
+                <view class="mb20">
+                    <view class="font14 h80 flex_sb bw plr24">
+                        <text class="col9">{{item.code_title}}</text>
+                        <text class="color5">已过期</text>
+                    </view>
+                    <view class="ptb30 plr24 flex bgfa">
+                        <!-- <block wx:for="{{item.goods_data}}" wx:key> -->
+                        <view class="goods_logo_box">
+                            <image src="{{item.img}}"></image>
+                        </view>
+                        <view class="ml40 flex_sbc flex1">
+                            <view class="font14 col3">{{item.goods_title}}</view>
+                            <view class="font12 col9">有效期：{{item.etime}}</view>
+                        </view>
+                        <view class="font12 col9 flex_a">
+                            <text>x{{item.num}}</text>
+                        </view>
+                        <!-- </block> -->
+                    </view>
+                </view>
+            </block>
+            <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+        </view>
+    </swiper-item>
+</swiper>
+<login-component bind:myevent="listeningEvent"/>

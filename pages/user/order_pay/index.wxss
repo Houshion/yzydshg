@@ -1,0 +1,53 @@
+@import '/css/main.wxss';
+
+.goods_logo_box {
+    width: 120rpx;
+    height: 120rpx;
+    background-color: #fafafa;
+}
+
+.goods_logo_box image {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.w130 {
+    width: 130rpx;
+}
+
+.detail_box>view+view {
+    margin-top: 20rpx;
+}
+
+.cart_logo {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.fee_box>view+view {
+    margin-top: 20rpx;
+}
+
+.tc_box .lists {
+    text-indent: 1em
+}
+
+.tc_box .lists::before {
+    position: absolute;
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    background: #999;
+    border-radius: 50%;
+}
+
+.payBtn{
+    width: 200rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+    background: #ffcc00;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+    border-radius: 48rpx;
+}

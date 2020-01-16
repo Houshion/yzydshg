@@ -1,0 +1,22 @@
+<wxs module="dateFr" src="../../../utils/filter/dateStr.wxs"></wxs>
+<view class="">
+    <view class="flex_a col9 font12 tab_box bw pos_f_t" >
+        <view>月份</view>
+        <view>销售金额</view>
+        <view>提成比例</view>
+        <view>提成金额</view>
+    </view>
+    <view class="pt120">
+        <block wx:for='{{list}}' wx:key>
+        <view class="list col3 font12 flex_a bw">
+            <view class="flex_d">
+                <view>{{dateFr.changeTimeStr(item.ctime,'date')}}</view>
+            </view>
+            <view>￥{{item.order_money}}</view>
+            <view>￥{{item.ratio}}</view>
+            <view>￥{{item.money}}</view>
+        </view>
+        </block>
+        <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+    </view>
+</view>

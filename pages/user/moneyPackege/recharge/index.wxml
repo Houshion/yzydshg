@@ -1,0 +1,16 @@
+<view id="recharge">
+    <view class="bw ptb20 plr30 chargeList">
+        <view class="listBox {{o_index == index?'active':''}}" wx:for="{{chargeList}}" wx:for-index="index" bind:tap="change" data-index="{{index}}" data-option_id="{{item.option_id}}">
+            <view class="fontb font15">￥{{item.money}}</view>
+            <view>(支付￥{{item.give_money}})</view>
+        </view>
+    </view>
+    <view class="bw mt20 ptb20 plr20 font15 flex_a">
+        <view class="label">充值金额</view>
+        <view class="input ml20">
+            <input type="digit" placeholder="请输入充值金额(金额:元)" bindinput="price" value="{{price}}"/>
+        </view>
+    </view>
+    <view class="submitBtn" bind:tap="pay">支付</view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

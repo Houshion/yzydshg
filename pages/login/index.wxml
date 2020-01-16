@@ -1,0 +1,28 @@
+<view>
+    <view class='logo_box ptb80 tac'><image src="/img/logo.png"></image></view>
+    <view class='mlr60 bgc3'>
+        <view class='h110 bdb flex_a mlr30'>
+            <image src="/img/phone.png" class='phone'></image>
+            <input type="number" placeholder="请输入手机号码" value="{{phoneValue}}" class=' mlr30 font14 col9 flex1' bindinput='phone'/>
+        </view>
+        <view class='h100 flex_a mlr30'>
+            <image src="/img/pw.png" class='pw' ></image>
+            <input type="text" placeholder="请输入登录密码" value="{{pwValue}}" class='mlr30 font14 col9 flex1' bindinput='pw'  wx:if="{{eye_status}}"/>
+            <input type="password" placeholder="请输入登录密码" value="{{pwValue}}" class='mlr30 font14 col9 flex1' bindinput='pw'  wx:if="{{!eye_status}}"/>
+            <image src="/img/eye.png" class='eye' wx:if="{{!eye_status}}"  bindtap="eye_click"></image>
+            <image src="/img/eye_close.png" class='eye_close'  wx:if="{{eye_status}}" bindtap="eye_click" ></image>
+        </view>
+    </view>
+    <!--<checkbox-group bindchange="checkboxChange">-->
+        <!--<label class="checkbox">-->
+            <!--<view class="mlr60 font15 col9 flex_a mt40">-->
+                <!--<checkbox value="1" checked="{{checked}}"/>记录账号密码-->
+            <!--</view>-->
+        <!--</label>-->
+    <!--</checkbox-group>-->
+    <view class="mt80 tac">
+        <view class="confirm" bindtap='login_btn'>登录</view>
+        <navigator url="/pages/forgot_password/index?type={{login_type}}" hover-class="none" class="ptb20 col9 font12 tac dib">忘记密码</navigator>
+    </view>
+</view>
+

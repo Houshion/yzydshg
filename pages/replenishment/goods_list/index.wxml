@@ -1,0 +1,65 @@
+<view class="">
+    <view class="pos_f_t pt20 bgf5">
+        <view class="ptb40 bw plr30 font12 ">
+            <view class="flex_sb mb20">
+                <view>
+                    <text class="col9 mr20">设备名称</text>
+                    <text class="col3">{{device_info.title}}</text>
+                </view>
+                <text class="color6" wx:if="{{device_info.device_status == 1}}">在线</text>
+                <text class="color4" wx:if="{{device_info.device_status == 0}}">离线</text>
+            </view>
+            <view class="flex_a mb20">
+                <text class="col9 mr20">设备编号</text>
+                <text class="col3">{{device_info.macno}}</text>
+            </view>
+            <view class="flex_sb">
+                <view>
+                    <text class="col9 mr20">设备地址</text>
+                    <text class="col3">{{device_info.address}}</text>
+                </view>
+                <text class="color5" wx:if="{{device_info.is_stockout == 1}}">需补货</text>
+            </view>
+        </view>
+        <view class='tab_box flex_a bw mt20'>
+            <view class="swiper-tab">
+                <block wx:for='{{tab_list}}' wx:key>
+                    <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">
+                        {{item}}
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view style="padding-bottom: 170rpx;padding-top: 380rpx;">
+        <view class="plr30 bw bdb ptb30 font12 flex" wx:for="{{list}}" wx:key>
+            <view><image src="{{item.goods_image}}" class="list_logo"></image></view>
+            <view class="flex1 ml24">
+                <view class="flex_sb">
+                    <view>
+                        <text class="col9 mr20">货道编号</text>
+                        <text class="col3">{{item.title}}</text>
+                    </view>
+                    <text class="color1" wx:if="{{item.is_stockout == 1}}">缺货</text>
+                </view>
+                <view class="mt20">
+                    <text class="col9 mr20">商品名称</text>
+                    <text class="col3">{{item.goods_title}}</text>
+                </view>
+                <view class="flex_sb mt40">
+                    <text class="color5">￥{{item.price}}</text>
+                    <view class="flex_a">
+                        <view class="mr20"><text class="col9 mr20">库存：</text><text class="col9">{{item.inventory}}</text></view>
+                        <view><text class="col9 mr20">货道容量：</text><text class="col9">{{item.max_inventory}}</text></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+    </view>
+    <view class="tac ptb40 pos_f_b bgf5">
+        <navigator url="/pages/replenishment/add_list/index?macno={{macno}}" class="handle_btn bgc1 btn">开始补货</navigator>
+        <navigator url="/pages/replenishment/manage_aisle/index?macno={{macno}}" class="handle_btn bgc43 ml40 btn">管理货道</navigator>
+    </view>
+</view>
+

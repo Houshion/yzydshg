@@ -1,0 +1,49 @@
+<view>
+  <view class='dib top_box'>
+    <navigator url="/pages/user/center_data/index" class='logo_box'>
+      <image src='{{center_obj.head_img}}' class='logo'></image>
+    </navigator>
+    <view class="flex_sb w100">
+      <view class='col3 font15 mt20 ml60' wx:if="{{val}}">
+        <view class="name">{{center_obj.nickname}}</view>
+        <view class="phone">{{center_obj.mobile}}</view>
+      </view>
+      <view class='col3 font15 mt20 ml60' wx:else>
+        <button class=" col3 border-r1 btn" bind:tap="login">请登录</button>
+      </view>
+      <view class="signIn font14 flex_aj" bind:tap="signUp">
+        <image src='/img/sign_in.png' class='sign_in_logo' mode='widthFix'></image>
+        签到
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bw mlr30 border-r1'>
+  <block wx:for='{{list}}' wx:key>
+    <navigator url='{{item.url}}' class='flex_a h120'>
+      <view class='plr30'>
+        <image src='{{item.imgUrl}}' class='icon_logo' mode='widthFix'></image>
+      </view>
+      <view class='bdb flex_sb h120 flex1 pr30'>
+        <text class='font15 col3'>{{item.title}}</text>
+        <view class='col9 font12 tae flex_aj'>
+          <view class="mr20">{{item.value}}</view>
+          <image src='/img/right.png' class='arrow_right'></image>
+        </view>
+      </view>
+    </navigator>
+  </block>
+  <view class='flex_a h120 btn' bindtap='call_phone'>
+    <view class='plr30'>
+      <image src='/img/ic4.png' class='icon_logo' mode='widthFix'></image>
+    </view>
+    <view class='flex_sb h120 flex1 pr30'>
+      <text class='font15 col3'>联系客服</text>
+      <view class='col9 font12 tae'>
+        <view>{{center_obj.phone}}</view>
+        <view>{{center_obj.service_time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<login-component bind:myevent="listeningEvent"  val="{{login_status}}" wx-if="{{login_status}}"/>

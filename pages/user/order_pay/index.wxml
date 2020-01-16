@@ -1,0 +1,22 @@
+<import src="../wxParse/wxParse.wxml" />
+<view class="pt20">
+    <view class="ptb30 plr24 flex bw">
+        <view class="goods_logo_box">
+            <image src="{{detail.goods_info.img}}"></image>
+        </view>
+        <view class="ml40 flex_sbc flex1">
+            <view class="font14 col3">{{detail.goods_info.goods_title}}</view>
+            <view class="font12 col9">
+                库存：{{detail.goods_info.inventory}}{{detail.goods_info.unit}}
+            </view>
+            <view class="font12 col9 flex_sb"><text>￥{{detail.goods_info.price}}</text> <view class="payBtn" bind:tap="payNow">支付</view></view>
+        </view>
+    </view>
+</view>
+<view class="mt40 bw font12">
+    <view class="fontb font14 tac ptb15">商品详情</view>
+    <view class="ptb20 plr20">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

@@ -1,0 +1,70 @@
+<view class="pos_r bdt" bindtap="edit_addr">
+    <view class="bw plr30 ptb30 flex_sb" wx:if="{{address==''}}">
+        <view class="flex_a">
+            <image src="/img/add_address.png" class="add_address_logo"></image>
+            <text class="font14 col3 ml30">添加收货地址</text>
+        </view>
+        <image src="/img/right.png" class="arrow_right"></image>
+    </view>
+    <view class=" plr30 ptb30 flex_a bw font14 col3" wx:else>
+        <view class="flex1">
+            <view class="ml40">
+                <text>{{address.name}}</text><text>{{address.mobile}}</text>
+            </view>
+            <view class='flex_a'>
+                <image src="/img/address.png" class="address_logo mr20"></image>
+                <view class="mt15">{{address.province}}{{address.city}}{{address.area}}{{address.detailaddress}}</view>
+            </view>
+        </view>
+        <image src="/img/right.png" class="arrow_right"></image>
+    </view>
+    <image src="/img/bg3.png" class="bg_box"></image>
+</view>
+<view class="mt20 _box">
+    <view class='ptb20 bw flex plr24' wx:for="{{confirm_data.goods}}" wx:key>
+        <view class='img_logo'>
+            <image src='{{item.img}}'></image>
+        </view>
+        <view class='flex1 mlr20 flex_sbc'>
+            <view class='col3 font15'>{{item.title}}</view>
+            <view class='col9 font13'>￥{{item.price}}</view>
+        </view>
+        <view class="col9 font13 flex_a">x{{item.num}}</view>
+    </view>
+    <view class="bw font12 col9 ptb30 fee_box">
+        <view class="flex_sb plr24">
+            <text>小计</text>
+            <text>￥{{confirm_data.subtotal}}</text>
+        </view>
+        <view class="flex_sb plr24">
+            <text>邮费（满￥{{confirm_data.freight_free}}包邮）</text>
+            <text>￥{{confirm_data.freight}}</text>
+        </view>
+    </view>
+    <view class="col3 font15 tae lh80 plr30 bw">共{{confirm_data.goods_num}}件商品  合计：￥{{confirm_data.total_money}}</view>
+</view>
+<view class="font14">
+    <view class="plr30 ptb30 col9">支付方式</view>
+    <radio-group bindchange="radioChange" class="bw">
+        <view class="radio-group" >
+            <label class="radio flex_sb plr30 h100">
+                <view class="flex_a">
+                    <image src="/img/money.png" class="ic_money mr20"></image>
+                    <text class="col3">余额（￥{{money}}）</text>
+                </view>
+                <radio value="wallet" checked color="#ffcc00"/>
+            </label>
+            <label class="radio flex_sb plr30 h100">
+                <view class="flex_a">
+                    <image src="/img/ic_wx.png" class="ic_wx mr20"></image>
+                    <text class="col3">微信</text>
+                </view>
+                <radio value="wx"  color="#ffcc00"/>
+            </label>
+        </view>
+    </radio-group>
+</view>
+<view class="mtb80">
+    <view class="confirm" bindtap='pay_btn'>支付</view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

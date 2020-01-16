@@ -1,0 +1,19 @@
+@import '/css/main.wxss';
+
+.yue .btn {
+    border-radius: 45rpx;
+    color: #ffffff;
+    background: #fc0;
+    width: 200rpx;
+    margin: auto;
+    padding: 15rpx 0;
+    font-size: 28rpx;
+}
+
+.list .price.plus {
+    color: #74dddc
+}
+
+.list .price.reduce {
+    color: #f55f71
+}

@@ -1,0 +1,30 @@
+@import '/css/main.wxss';
+.list_logo{
+    width: 150rpx;
+    height: 150rpx;
+    border: 1px solid #e5e5e5;
+}
+.list_logo image{
+    width: 150rpx;
+    height: 150rpx;
+}
+.h_btn{
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 42rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    border: 1px solid #e5e5e5;
+}
+.search_header{
+    height: 60px;
+}
+.search_img{
+    width: 31rpx;
+    height: 34rpx;
+}
+.search_box{
+    border: 1px solid #e5e5e5;
+    border-radius: 44rpx;
+}

@@ -1,0 +1,51 @@
+@import '/css/main.wxss';
+
+.img {
+    width: 100%
+}
+
+.reward .rewardList {
+    text-indent: 1em
+}
+
+.reward .rewardList::before {
+    position: absolute;
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    background: #999;
+    border-radius: 50%;
+}
+
+.btn {
+    color: #ffffff;
+    background: #ffcc00;
+    text-align: center;
+    border-radius: 50rpx;
+    margin-top: 50rpx;
+}
+
+.progress .people {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.progress .people .personList {
+    width: 80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: #eee;
+    border-radius: 50%;
+    font-size: 50rpx;
+    margin: 10rpx;
+    color: #ccc
+}
+
+.progress .people .personList .joiner image {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.progress .people .personList .nobody {}

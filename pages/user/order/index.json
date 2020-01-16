@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "login-component": "/components/login-component/login-component"
+  },
+  "navigationBarTitleText": "我的订单",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,120 @@
+<view class="pt20" wx:if="{{detail.status == 3 && type == 1 }}">
+    <navigator url="/pages/user/message/index?id={{detail.order_id}}" class="bw plr24 ptb40 flex_a">
+        <image src="/img/cart_ic1.png" class="cart_logo"></image>
+        <view class="flex1 ml30">
+            <view class="col3 font14">{{detail.wuliu.data[0].context}}</view>
+            <view class="mt20 col9 font12">{{detail.wuliu.data[0].time}}</view>
+        </view>
+        <image src="/img/right.png" class="arrow_right"></image>
+    </navigator>
+</view>
+<view class="pt20">
+    <view wx:if="{{type == 1}}" class="list_box">
+        <view class="ptb30 plr24 flex bgfa" wx:for="{{detail.goods_data}}" wx:key >
+            <view class="goods_logo_box">
+                <image src="{{item.img}}"></image>
+            </view>
+            <view class="ml40 flex_sbc flex1">
+                <view class="font14 col3">{{item.title}}</view>
+                <view class="font12 col9">￥{{item.price}}</view>
+            </view>
+            <view class="font12 col9 flex_a">
+                <text>x{{item.num}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="ptb30 plr24 flex bgfa" wx:key wx:if="{{type == 2 || type == 3 }}">
+        <view class="goods_logo_box">
+            <image src="{{detail.goods_data.img}}"></image>
+        </view>
+        <view class="ml40 flex_sbc flex1">
+            <view class="font14 col3">{{detail.goods_data.title}}</view>
+            <view class="font12 col9">￥{{detail.goods_data.price}}</view>
+        </view>
+        <view class="font12 col9 flex_a">
+            <text>x{{detail.goods_data.num}}</text>
+        </view>
+    </view>
+    <view class="bw font12 col9 ptb30 fee_box bdb" wx:key wx:if="{{type!=3}}">
+        <view class="flex_sb plr24">
+            <text>小计</text>
+            <text>￥{{detail.subtotal}}</text>
+        </view>
+        <view class="flex_sb plr24" wx:if="{{ type == 1}}">
+            <text>邮费（满￥{{detail.freight_free}}包邮）</text>
+            <text>￥{{detail.freight}}</text>
+        </view>
+    </view>
+    <view class="font14 col3 h80 lh80 tae plr24 bw">
+        共{{detail.goods_num}}件商品 合计：￥{{detail.real_money}}
+    </view>
+</view>
+<view class="bw ptb40 plr24 mt20 font12 tc_box" wx:if="{{type==3}}">
+    <view class="fontb">套餐详情</view>
+    <view class="lists col9 flex_sb mt15" wx:key wx:for="{{detail.goods_info}}">
+        <view>{{item.title}}</view>
+        <view>￥{{item.price}}</view>
+    </view>
+</view>
+<view class="mt20 bw plr24 font12 detail_box ptb40">
+    <view class="flex_a">
+        <view class="col9 w130">订单编号</view>
+        <view class="col3">{{detail.order_no}}</view>
+    </view>
+    <view class="flex_a">
+        <view class="col9 w130">订单状态</view>
+        <block wx:if="{{ type == 1}}">
+            <text class="col3" wx:if="{{detail.status == -1 }}">已失效</text>
+            <text class="col3" wx:if="{{detail.status == 1 }}">待支付(订单将在5分钟后失效)</text>
+            <text class="col3" wx:if="{{detail.status == 2 }}">待发货</text>
+            <text class="col3" wx:if="{{detail.status == 3 }}">已发货</text>
+            <text class="col3" wx:if="{{detail.status == 4 }}">已完成</text>
+            <text class="col3" wx:if="{{detail.status == -8 }}">退款中</text>
+            <text class="col3" wx:if="{{detail.status == -10 }}">已退款</text>
+            <text class="col3" wx:if="{{detail.status == -9 }}">退款失败</text>
+        </block>
+        <block wx:if="{{ type == 2}}">
+            <text class="col3" wx:if="{{detail.status == 3 }}">已完成</text>
+            <text class="col3" wx:if="{{detail.status == -2 }}">异常</text>
+            <text class="col3" wx:if="{{detail.status == -1 }}">出货失败</text>
+            <text class="col3" wx:if="{{detail.status == 2 }}">已支付</text>
+            <text class="col3" wx:if="{{detail.status == 1 }}">待支付</text>
+            <text class="col3" wx:if="{{detail.status== -5 }}">退款失败</text>
+        </block>
+        <block wx:if="{{ type == 3}}">
+            <text class="col3" wx:if="{{detail.status == 2 }}">已完成</text>
+            <text class="col3" wx:if="{{detail.status == 1 }}">未支付</text>
+            <text class="col3" wx:if="{{detail.status == -1 }}">已失效</text>
+        </block>
+    </view>
+    <view class="flex_a" wx:if="{{(detail.status == -10 || detail.status == -8 || detail.status == -9) && type == 1}}">
+        <view class="col9 w130">退款理由</view>
+        <view class="col3">{{detail.reason}}</view>
+    </view>
+    <view class="flex_a">
+        <view class="col9 w130">支付时间</view>
+        <view class="col3">{{pay_time}}</view>
+    </view>
+    <view class="flex_a" wx:if="{{type == 2}}">
+        <view class="col9 w130">交易设备</view>
+        <view class="col3">{{detail.device_title}}</view>
+    </view>
+    <view class="detail_box" wx:if="{{type == 1}}">
+        <view class="flex_a">
+            <view class="col9 w130">收件人</view>
+            <view class="col3">{{detail.name}}</view>
+        </view>
+        <view class="flex_a">
+            <view class="col9 w130">联系方式</view>
+            <view class="col3">{{detail.mobile}}</view>
+        </view>
+        <view class="flex_a">
+            <view class="col9 w130">收货地址</view>
+            <view class="col3">{{detail.address}}</view>
+        </view>
+    </view>
+</view>
+<view class="mtb80" wx:if="{{detail.status == 1 && type == 1 || detail.status == 1 && type == 2}}">
+    <view class="confirm" bindtap="pay">去支付</view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

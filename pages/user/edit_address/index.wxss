@@ -1,0 +1,17 @@
+@import '/css/main.wxss';
+.radio-group{
+    width: 220rpx;
+    height: 80rpx;
+}
+.edit_logo{
+    width: 40rpx;
+    height: 40rpx;
+}
+.defalut_box{
+    display: inline-block;
+    width:78rpx;
+    line-height: 40rpx;
+    text-align: center;
+    border: 1px solid #ffcc00;
+    border-radius: 10rpx;
+}

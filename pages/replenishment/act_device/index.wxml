@@ -1,0 +1,32 @@
+<view class="pt20">
+    <view class="font14 plr30 h100 flex_sb bw">
+        <text class="col9">场所</text>
+        <text class="col3">{{info.address}}</text>
+    </view>
+    <view class="ptb30 plr30 bw font12 flex_a mt20">
+        <view class="act_box bgf5">
+            <image src="{{info.img}}" ></image>
+        </view>
+        <view class="ml20 device_box">
+            <view>
+                <text class="col9">设备名称</text>
+                <text class="col3 ml20">{{info.title}}</text>
+            </view>
+            <view>
+                <text class="col9">设备编号</text>
+                <text class="col3 ml20">{{info.macno}}</text>
+            </view>
+            <view>
+                <text class="col9">设备型号</text>
+                <text class="col3 ml20">{{info.device_type_name}}</text>
+            </view>
+            <view>
+                <text class="col9">货道数量</text>
+                <text class="col3 ml20">{{info.aisle_num}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="mt80">
+        <view class="confirm" bindtap="active_click">确认激活</view>
+    </view>
+</view>

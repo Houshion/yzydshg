@@ -1,0 +1,87 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" indicator-active-color="{{active_color}}" indicator-color="{{indicator_color}}">
+  <block wx:for="{{banner}}" wx:key>
+    <swiper-item>
+      <image src="{{item.imgurl}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="bgf5 h20"></view>
+<view class='clearfix flex1  main_box bw'>
+  <view class='left_box bgf5 font15'>
+    <block wx:for='{{list_data}}' wx:key>
+      <view class='h130 lh130 tac ellipsis bdb col3 {{currentTab==index ? "bw" : "bgf5"}}' bindtap="swichNav" data-index='{{index}}'>{{item.title}}</view>
+    </block>
+  </view>
+  <view class='right_box'>
+    <block wx:for='{{list_data}}' wx:key  wx:for-item="itemName" wx:for-index="idx" wx:if="{{loading}}">
+       <block wx:for='{{itemName.list}}' wx:if="{{currentTab==idx }}" wx:key>
+        <view class='ptb20 bw flex plr24'>
+          <navigator url="/pages/user/goods_detail/index?tab_id={{itemName.id}}&id={{item.id}}&goods_num={{ item.goods_num }}&inventory={{ item.num }}" class="flex flex1" hover-class="none">
+            <view class='img_logo'>
+              <image src='{{item.img}}'></image>
+            </view>
+            <view class='font15 flex1 mlr20 flex_sbc'>
+              <view class='col3 ellipsis' style="width:5.5rem;">{{item.title}}</view>
+              <view class='color2'>￥{{item.price}}</view>
+            </view>
+          </navigator>
+          <view class='flex_a'>
+            <image src='/img/del.png' class='del' data-type='del' data-index='{{index}}' data-idx='{{idx}}' bindtap="handle_box"></image>
+            <text class='font15 col3 plr20'>{{ item.goods_num }}</text>
+            <image src='/img/add.png' class='add' data-type='add' data-index='{{index}}' data-idx='{{idx}}' bindtap="handle_box"></image>
+          </view>
+        </view>
+       </block>
+       <block wx:if="{{currentTab==idx && itemName.list.length == 0}}">
+        <view class="tip">
+          <image src="/img/empty.png"></image>
+          <text>暂无数据</text>
+        </view>
+      </block>
+    </block>
+     <block wx:if="{{!loading}}">
+        <view class="tip">
+          <image src="/img/empty.png"></image>
+          <text>暂无数据</text>
+        </view>
+      </block>
+  </view>
+</view>
+<view class='footer h100 bgc3 flex'>
+  <view class='cart_logo_box pos_r dib ml20' bindtap='cart_click'>
+    <image src='/img/cart.png' wx:if="{{total_num > 0}}"></image>
+    <image src='/img/cart_none.png' wx:else></image>
+    <text class='bgc2 colw' wx:if="{{total_num>0}}">{{total_num < 99 ? total_num : '...'}}</text>
+  </view>
+  <view class='lh100 flex1 tae font14 plr30' wx:if="{{total_price>0}}">
+    <text class='col9 mr20'>合计</text>
+    <text class='color4 font12'>￥</text><text class='color4'>{{total_price}}</text>
+  </view>
+  <view class='lh100 flex1 tae font14 plr30' wx:else>
+    <text class='col9 mr20'>未选购商品</text>
+  </view>
+  <view class='bgc col9 font16 flex_aj pay_btn'  wx-if='{{total_num ==0 }}'>支付</view>
+  <view class='bgc1 colw font16 flex_aj pay_btn btn' bindtap="pay_btn" wx:else>支付</view>
+</view>
+<!-- 购物车弹窗 -->
+<view>
+  <view class='mask {{cart_show ? "z100 opacity_1" : "z_1"}}' bindtap='cart_click'  wx-if='{{total_num !=0 }}'></view>
+  <view class='cart_win bw plr30 font14 col3 {{cart_show ? "bottom":""}}'>
+    <block wx:for='{{list_data}}' wx:key  wx:for-item="itemName" wx:for-index="idx" >
+      <block wx:for='{{itemName.list}}'  wx:key wx-if="{{item.goods_num != 0 }}">
+        <view class='flex_sb h100'>
+          <view>{{item.title}}</view>
+          <view class='flex_a'>
+            <view>￥{{item.price}}</view>
+            <view class='flex_a ml60'>
+              <image src='/img/del.png' class='del' data-type='del' data-index='{{index}}' data-idx='{{idx}}' data-cart_type="cart"  bindtap="handle_box"></image>
+              <text class='font15 col3 plr20'>{{item.goods_num}}</text>
+              <image src='/img/add.png' class='add' data-type='add' data-index='{{index}}' data-idx='{{idx}}'data-cart_type="cart" bindtap="handle_box"></image>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+</view>
+<login-component bind:myevent="listeningEvent"   val="{{login_status}}" wx-if="{{login_status}}"/>

@@ -1,0 +1,4 @@
+@import '/css/main.wxss';
+.space_box{
+    width: 166rpx;
+}

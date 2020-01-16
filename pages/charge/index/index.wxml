@@ -1,0 +1,95 @@
+<view class='logo_box ptb80 tac'>
+    <image style="border-radius:50%" src="/img/logo.png"></image>
+    <view class="col3 font16 mt30" wx:if="{{login_type=='charge'}}">{{userInfo.agent_name}}</view>
+    <view class="col3 font16 mt30" wx:if="{{login_type=='coach'}}">{{userInfo.coach_name}}</view>
+    <view class="col3 font16 mt30" wx:if="{{login_type=='seller'}}">{{userInfo.person_name}}</view>
+    <view class="col9 font12 mt20">ID：{{userInfo.id}}</view>
+</view>
+<view class="mlr30 box_s bw border-r1 index_box plr30">
+    <view class="pb40">
+        <view class="tac pos_r">
+            <!-- <view class="pt40"><image src="/img/img5.png" class="step_logo"></image></view> -->
+            <view class='pt40'>
+                <view class="col9 font12">{{login_type=='seller'?'总提成':'总收入'}}</view>
+                <view class="color5 mt20">
+                    <text class="font12">￥</text>
+                    <text class="font20">{{userInfo.total_money}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="flex_aj ptb60" wx:if="{{login_type!='seller'}}">
+            <view>
+                <view class="flex_a">
+                    <text class="col9 mr20 font12">冻结资金</text>
+                    <image src="/img/problem.png" class="problem_logo" bindtap="problem"></image>
+                </view>
+                <view class="col3  mt15 font16">￥{{userInfo.frozen_money}}</view>
+            </view>
+            <view class="mlr60">
+                <image src="/img/img3.png" class="img3_logo"></image>
+            </view>
+            <view>
+                <view class="col9 mr20 font12">可提现金额</view>
+                <view class="col3  mt15 font16">￥{{userInfo.balance}}</view>
+            </view>
+        </view>
+        <view class="flex_j" wx:if="{{login_type!='seller'}}">
+            <navigator url="../withdraw_cash/index?balance={{userInfo.balance*1}}&min_money={{userInfo.min_money*1}}" class="font14 add_goods_btn col-5b btn border-5b">
+                提现
+            </navigator>
+        </view>
+    </view>
+    <view class="order_box pt60 pb20">
+        <view>
+            <view class="col9 mr20 font12">昨日收入</view>
+            <view class="col3  mt15 font16">￥{{userInfo.yesterday_income}}</view>
+        </view>
+        <view>
+            <view class="col9 mr20 font12">本月收入</view>
+            <view class="col3  mt15 font16">￥{{userInfo.month_income}}</view>
+        </view>
+        <view wx:if="{{login_type=='seller'}}" class="seller_box">
+            <view>
+                <view class="col9 mr20 font12">提成比例</view>
+                <view class="col3  mt15 font16">{{userInfo.ratio}}%</view>
+            </view>
+            <view>
+                <view class="col9 mr20 font12">设备数量（台）</view>
+                <view class="col3  mt15 font16">{{userInfo.device_num}}</view>
+            </view>
+        </view>
+        <view wx:else class="other_box">
+            <view>
+                <view class="col9 mr20 font12">昨日订单（单）</view>
+                <view class="col3  mt15 font16">{{userInfo.yesterday_order_num}}</view>
+            </view>
+            <view>
+                <view class="col9 mr20 font12">本月订单（单）</view>
+                <view class="col3  mt15 font16">{{userInfo.month_order_num}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="mt20 record_box">
+    <block wx:for="{{login_type=='charge'? coach_list :login_type=='coach'? coach_list :sellerList}}" wx:key>
+        <navigator url="{{item.url}}" class="flex_sb plr30 h100 bw" wx:if="{{item.status != 2}}">
+            <view class="flex_a">
+                <image src="{{item.img_url}}" class="record_logo" mode="widthFix"></image>
+                <text class="col3 ml20 font14">{{item.title}}</text>
+            </view>
+            <em class="flex_a">
+                <text class="col9 font14 mr20" wx:if="{{item.status == 1}}">{{student_num}}</text>
+                <text class="col9 font14 mr20" wx:if="{{item.num}}">{{item.num}}</text>
+                <image src="/img/right.png" class="arrow_right"></image>
+            </em>
+        </navigator>
+        <button open-type="share" class="flex_sb plr30 h100 bw bdt bdb " wx:if="{{item.status == 2}}">
+            <view class="flex_a">
+                <image src="{{item.img_url}}" class="record_logo" mode="widthFix"></image>
+                <text class="col3 ml20 font14">{{item.title}}</text>
+            </view>
+            <image src="/img/right.png" class="arrow_right"></image>
+        </button>
+    </block>
+</view>
+<view class="h100 flex_aj font14 col3 bw mtb20 btn" bindtap="log_out">退出登录</view>

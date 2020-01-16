@@ -1,0 +1,19 @@
+@import '/css/main.wxss';
+.tab_box view{
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    width: 25%;
+}
+.list>view{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100rpx;
+    /*line-height: 100rpx;*/
+    text-align: center;
+    width: 25%;
+}
+.list + view{
+    border-top: 1px solid #e5e5e5;
+}

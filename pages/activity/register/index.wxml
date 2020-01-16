@@ -1,0 +1,20 @@
+<view class="pos_r">
+    <image src="/img/bg.png" class="logo"></image>
+    <view class="mlr24 border-r1 bw plr30 ptb40 bd_box mb40">
+        <view class='bgc3 border-r1'>
+            <view class='h110 bdb flex_a mlr30'>
+                <image src="/img/phone.png" class='phone'></image>
+                <input type="tel" placeholder="请输入手机号码" class=' mlr30 font14 col9 flex1' bindinput='phone'/>
+                <view class='get_code font13 bgc1 colw'  bindtap="getCode">{{second==0?'获取验证码':second+'s'}}</view>
+            </view>
+            <view class='h100 flex_a mlr30'>
+                <image src="/img/code.png" class='code' ></image>
+                <input type="number" placeholder="请输入短信验证码" class='mlr30 font14 col9' bindinput='code'/>
+            </view>
+        </view>
+        <view class="mt40">
+            <view class="confirm" bindtap='bd_btn'>注册</view>
+        </view>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent" />

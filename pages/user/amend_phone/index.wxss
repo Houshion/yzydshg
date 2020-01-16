@@ -1,0 +1,6 @@
+@import '/css/main.wxss';
+.get_code{
+    width: 200rpx;
+    height: 65rpx;
+    border-radius: 10rpx;
+}

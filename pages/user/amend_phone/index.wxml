@@ -1,0 +1,11 @@
+<view>
+    <view class="plr30 ptb30 font14 col9">当前手机号码: {{phoneValue}}</view>
+    <view class='h100 flex_sb plr30 bw'>
+        <input type="number" placeholder="请输入验证码" class='mlr30 font14 col9' bindinput='code'/>
+        <view class='get_code flex_aj font13 bgc1 colw'  bindtap="getCode">{{second==0?'获取验证码':second+'s'}}</view>
+    </view>
+    <view class="mt80">
+        <view class="confirm" bindtap='next_btn'>下一步</view>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

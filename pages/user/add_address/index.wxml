@@ -1,0 +1,33 @@
+<form bindsubmit="formSubmit" class="db pt20">
+    <view class="flex_sb h100 mb20 bw plr30">
+        <text class="font14 col3">设置为默认地址</text>
+        <switch checked="{{checked}}" color="#ffcc00" name="defalut_address" />
+    </view>
+    <view class="plr30 bw">
+        <view class="lh100 flex_a bdb ">
+            <text class="font14 col3 _box">收货人</text>
+            <input type="text" placeholder="请输入收货人姓名" class="font14 col9 flex1" value="{{name}}" name="user_name" />
+        </view>
+        <view class="lh100 flex_a bdb ">
+            <text class="font14 col3 _box">手机号码</text>
+            <input type="number" placeholder="请输入手机号码" class="font14 col9 flex1" value="{{mobile}}" name="phone" />
+        </view>
+        <picker mode="region" bindchange="bindRegionChange" name="city">
+            <view class="lh100 flex_sb bdb ">
+                <text class="font14 col3 _box">所在地区</text>
+                <view class="picker font14 col3 flex_a">
+                    <text wx-if="{{region.length == 0}}">省/市/区</text>
+                    <text wx-if="{{region.length>0}}">{{region}}</text>
+                    <image src="/img/right.png" class="arrow_right ml20"></image>
+                </view>
+            </view>
+        </picker>
+        <view class="h100 flex_a">
+            <input type="text" placeholder="请输入收货人详细地址" class="font14 col9 flex1" value="{{detailaddress}}" name="address" />
+        </view>
+    </view>
+    <view class="mtb80">
+        <button form-type="submit" class="confirm">保存</button>
+    </view>
+</form>
+<login-component bind:myevent="listeningEvent" />

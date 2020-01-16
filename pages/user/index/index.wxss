@@ -1,0 +1,110 @@
+@import '/css/main.wxss';
+/* page{
+  background: #fff;
+} */
+swiper {
+  width: 100%;
+  height: 360rpx;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.main_box {
+  height: calc(100% - 480rpx);
+  overflow: hidden;
+}
+
+.left_box {
+  width: 25%;
+  float: left;
+  max-height: 100%;
+  height:100%;
+  overflow-y: scroll;
+}
+
+.right_box {
+  width: 75%;
+  float: left;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+.img_logo{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  border: 1px solid #e5e5e5;
+}
+.img_logo image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+.add, .del{
+  width: 40rpx;
+  height: 40rpx;
+}
+.footer{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom:0;
+  z-index: 101;
+}
+.cart_logo_box{
+  margin-top: -10rpx;
+}
+.cart_logo_box image{
+  width: 105rpx;
+  height:105rpx;
+}
+.cart_logo_box text{
+  display: inline-block;
+  text-align: center;
+  width: 30rpx;
+  line-height: 30rpx;
+  border-radius: 50%;
+  font-size: 20rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.pay_btn{
+  width: 220rpx;
+}
+.cart_win{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -400rpx;
+  z-index: 100;
+  max-height: 400rpx;
+  overflow-y: scroll;
+  transition: bottom .5s;
+}
+.cart_win>view + view{
+  border-top: 1px solid #e5e5e5;
+}
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+  opacity: 0;
+  transition:opacity .5s
+}
+.z100{
+  z-index: 100;
+}
+.z_1{
+  z-index: -1;
+}
+.bottom{
+  bottom:100rpx;
+}
+.opacity_1{
+  opacity:1;
+}

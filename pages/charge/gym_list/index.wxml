@@ -1,0 +1,34 @@
+<view class="bw pl30  flex_a search_header">
+  <view class="flex1 flex_a search_box plr30">
+    <image src="/img/search.png" class="search_img mr20"></image>
+    <input type="text" placeholder="请输入搜索的设备名称/设备编号" bindinput="search_click" class="h70 font14 col9 w100" />
+  </view>
+  <text class="col3 font14 plr30 hh100  flex_a" bindtap="searchBtn">搜索</text>
+</view>
+<block wx:for='{{list}}' wx:key>
+  <view class="bw plr30 font12 mt20">
+    <view class="ptb40">
+      <view class="flex_a mb20">
+        <text class="col9 mr20">设备名称</text>
+        <text class="col3">{{item.agent_name}}</text>
+      </view>
+      <view class="flex_a mb20">
+        <text class="col9 mr20">联系方式</text>
+        <text class="col3">{{item.phone}}</text>
+      </view>
+      <view class="flex_a mb20">
+        <text class="col9 mr20">昨日收入</text>
+        <text class="col3">{{item.yesterdayIncome}}元</text>
+      </view>
+      <view class="flex_a mb20">
+        <text class="col9 mr20">本月收入</text>
+        <text class="col3">{{item.thisMomthIncome}}元</text>
+      </view>
+      <view class="flex_a">
+        <text class="col9 mr20">总 收 益</text>
+        <text class="col3">{{item.totalIncome}}元</text>
+      </view>
+    </view>
+  </view>
+</block>
+<view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>

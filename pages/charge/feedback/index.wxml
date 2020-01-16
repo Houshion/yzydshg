@@ -1,0 +1,47 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='pt20'>
+        <view class="ptb40 mlr24  border-r1 bw plr30 font12 ">
+            <view class="flex_sb mb20">
+                <view>
+                    <text class="col9 mr20">设备名称</text>
+                    <text class="col3">{{info.device_title}}</text>
+                </view>
+                <text class="color6" wx:if="{{info.is_online==1}}">在线</text>
+                <text class="color4" wx:if="{{info.is_online==0}}">离线</text>
+                <text class="color4"  wx:if="{{info.is_online==-1}}">未激活</text>
+            </view>
+            <view class="flex_a mb20">
+                <text class="col9 mr20">设备编号</text>
+                <text class="col3">{{info.device_macno}}</text>
+            </view>
+            <view class="flex_sb">
+                <view>
+                    <text class="col9 mr20">设备地址</text>
+                    <text class="col3">{{info.device_address}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='bw border-r1 mlr24 flex ptb20 mt20'>
+            <image src="/img/feedback.png" class="feedback_img pl24"></image>
+            <textarea placeholder='请输入设备故障情况...' class=' font15 col3 h300 plr24' placeholder-class="col9"
+                      name="content"></textarea>
+        </view>
+        <view class="mt20 bw border-r1 mlr24">
+            <view class="pl24 pt20 font0 clearfix">
+                <block wx:if="{{lispic.length>0}}" wx:for="{{lispic}}" wx:key>
+                    <view class='pic_wrap'>
+                        <image class="pic" src="{{item}}" bindtap='indexpic_delete' data-index='{{index}}'></image>
+                        <!--<view class='delete flex_aj font12 colw' >x</view>-->
+                    </view>
+                </block>
+                <view class='pic_wrap' bindtap='choice'>
+                    <image class="pic" src="/img/add_img.png"></image>
+                </view>
+            </view>
+            <view class="tac col9 font12 pb20">上传图片（最多8张）</view>
+        </view>
+    </view>
+    <view class='mt60'>
+        <button class='confirm' hover-class='hover_class' form-type="submit">提交</button>
+    </view>
+</form>

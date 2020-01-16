@@ -1,0 +1,7 @@
+@import '/css/main.wxss';
+.tab_box view:first-child{
+    border-right: 1px solid #e5e5e5;
+}
+.pt_130{
+    padding-top: 130rpx;
+}

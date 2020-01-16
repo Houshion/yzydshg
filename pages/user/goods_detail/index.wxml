@@ -1,0 +1,17 @@
+<import src="../wxParse/wxParse.wxml" />
+<view class="bw">
+    <view class="detail_logo_box">
+        <image src="{{list_obj.img}}"></image>
+    </view>
+    <view class="pt30 pb20 tac bdt mt30">
+        <view class="col3 font16">{{list_obj.title}}</view>
+        <view class="color5 font15 mt20">￥{{list_obj.price}}</view>
+        <view class="col9 font12 mt20">月售{{list_obj.sales}}</view>
+    </view>
+</view>
+<view class="main_box">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    <!--<image src="/img/bg1.png" mode="widthFix"></image>-->
+</view>
+<view class="bgc1 colw font15 flex_aj h100 btn pos_f_b" bindtap="add_cart">加入购物车</view>
+<!--<login-component bind:myevent="listeningEvent"/>-->

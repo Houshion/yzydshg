@@ -1,0 +1,8 @@
+@import '/css/main.wxss';
+.act_box, .act_box image{
+    width: 140rpx;
+    height: 140rpx;
+}
+.device_box>view + view{
+    margin-top: 10rpx;
+}

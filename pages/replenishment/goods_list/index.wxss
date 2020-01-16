@@ -1,0 +1,61 @@
+@import '/css/main.wxss';
+.tab_box{
+    height: 55px;
+}
+.swiper-tab {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background: #fff;
+}
+
+.swiper-tab-list {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    background:#fff;
+    color:#999;
+    position: relative;
+}
+.on {
+    color:#ffcc00;
+}
+.on::after{
+    display: inline-block;
+    content: '';
+    width: 50rpx;
+    height: 10rpx;
+    background:#ffcc00;
+    position: absolute;
+    left: 50%;
+    margin-left: -25rpx;
+    border-radius: 40rpx;
+    bottom: 0;
+}
+.list_logo{
+    width: 150rpx;
+    height: 150rpx;
+    border: 1px solid #e5e5e5;
+}
+.list_logo image{
+    width: 150rpx;
+    height: 150rpx;
+}
+.handle_btn{
+    display: inline-block;
+    width: 300rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: white;
+    border-radius: 44rpx;
+}
+.bgc43{
+    background-color: #434343;
+}

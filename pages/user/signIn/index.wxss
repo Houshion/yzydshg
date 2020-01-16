@@ -1,0 +1,165 @@
+@import '/css/main.wxss';
+
+#signIn .bac {
+    width: 100%;
+}
+
+#signIn .scanSign {
+    position: absolute;
+    width: 100%;
+    top: 50rpx;
+    text-align: center;
+}
+
+#signIn .scanSign .btn {
+    width: 220rpx;
+}
+
+#signIn .signDate {
+    padding: 30rpx;
+    display: flex;
+    justify-content: space-between
+}
+
+#signIn .signDate view.date {
+    width: 80rpx;
+    height: 80rpx;
+    background: #fff3c2;
+    border: 1px solid #ffcf0e;
+    border-radius: 50%;
+    font-size: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+    color: #bfbfbf
+}
+
+#signIn .signDate view.date .img image {
+    width: 15px;
+}
+
+#signIn .signDate view.issign {
+    background: linear-gradient(to bottom, #ff7f92, #ff5c72);
+    color: #fff;
+    padding: 1px;
+    border: none;
+}
+
+#signIn .signDate view.date view {
+    width: 100%;
+}
+
+#signIn .mission {
+    text-align: center;
+}
+
+#signIn .mission .title,
+#signIn .mission .content .list {
+    display: flex;
+    justify-content: space-between;
+    font-size: 26rpx
+}
+
+#signIn .mission .title {
+    color: #bfbfbf;
+    border-bottom: 1px solid #bfbfbf;
+    padding: 0 20rpx 20rpx
+}
+
+#signIn .mission .content {
+    padding: 20rpx;
+}
+
+#signIn .mission .content .list view view {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#signIn .mission .jl {
+    width: 45%;
+}
+
+#signIn .mission .tj {
+    width: 30%;
+}
+
+#signIn .mission .zt {
+    width: 20%;
+    color: #bfbfbf
+}
+
+#signIn .mission .zt .y {
+    color: #ffffff;
+    background: #472d22;
+    width: 75% !important;
+    margin: auto
+}
+
+#signIn .mission .zt .n {
+    color: #ff5c72
+}
+
+#signIn .mission .content .jl {
+    text-align: left;
+}
+
+#signIn .tips {
+    font-size: 26rpx;
+    color: #bfbfbf;
+}
+
+#signIn .tips .title view {
+    width: 35rpx;
+    height: 35rpx;
+    line-height: 35rpx;
+    text-align: center;
+    background: #7383ad;
+    font-weight: bold;
+    border-radius: 50%;
+    color: #ffffff;
+    margin-right: 10rpx
+}
+
+#signIn .cover {
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, .3)
+}
+
+#signIn .cover .logo {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+#signIn .cover .logo image {
+    width: 300rpx;
+    display: block;
+    margin: 150rpx 0 -20rpx 50%;
+}
+
+#signIn .cover .content {
+    width: 80%;
+    margin: auto;
+    padding: 30rpx;
+    text-align: center;
+}
+
+#signIn .cover .content image {
+    width: 150rpx
+}
+
+#signIn .cover .close image {
+    width: 60rpx;
+    margin: 50rpx auto 0;
+}
+
+#signIn .cover .content .font20 {
+    font-weight: bold;
+    color: #472d22;
+}

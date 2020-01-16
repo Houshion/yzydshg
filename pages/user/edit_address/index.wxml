@@ -1,0 +1,41 @@
+<view class="pt20 pb200">
+    <radio-group  bindchange="radioChange">
+        <block wx:for="{{list}}" wx:key wx:if="{{loading}}">
+            <view class="bw mb20">
+                <view class="mlr30 ptb30 bdb">
+                    <view class="flex_a">
+                        <text class="font12 color1 mr20 defalut_box" wx:if="{{item.is_default==1}}">默认</text>
+                        <text class="col3 font14">{{item.province+item.city+item.area+item.detailaddress}}</text>
+                    </view>
+                    <view class="col9 font14 mt15">
+                        <text class="mr20">{{item.name}}</text>
+                        <text>{{item.mobile}}</text>
+                    </view>
+                </view>
+                <view class="plr30 flex_sb">
+                    <label class="radio-group flex_a {{type != 'edit' ? 'v_hidden' : ''}}"><radio value="{{item.id}}" checked="{{ id == item.id ? true:false}}"  color="#ffcc00"/></label>
+                    <view class="flex">
+                        <view class="flex_a h80">
+                            <image src="/img/edit.png" class="edit_logo"></image>
+                            <text class="col9 font14 pl20" bindtap='edit' data-address_id="{{item.id}}">编辑</text>
+                        </view>
+                        <view class="flex_a h80 ml40">
+                            <image src="/img/clear.png" class="edit_logo"></image>
+                            <text class="col9 font14 pl20" bindtap='clear' data-is_default="{{item.is_default}}" data-address_id="{{item.id}}">删除</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{!loading}}">
+            <view class="tip">
+                <image src="/img/empty.png"></image>
+                <text>暂无数据</text>
+            </view>
+        </block>
+    </radio-group>
+    <view class="ptb40 pos_f_b bgf5">
+        <navigator url="/pages/user/add_address/index" class="confirm">新增地址</navigator>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

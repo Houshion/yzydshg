@@ -1,0 +1,27 @@
+@import '/css/main.wxss';
+
+.img {
+    width: 100%
+}
+
+.reward .rewardList {
+    text-indent: 1em
+}
+
+.reward .rewardList::before {
+    position: absolute;
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    background: #999;
+    border-radius: 50%;
+}
+
+.btn {
+    color: #ffffff;
+    background: #ffcc00;
+    text-align: center;
+    padding: 15rpx;
+    border-radius: 50rpx;
+    margin-top: 50rpx;
+}

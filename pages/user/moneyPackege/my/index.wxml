@@ -1,0 +1,21 @@
+<view id="myPackage">
+    <view class="yue bw ptb60 tac">
+        <view class="font13 col9">钱包余额(元)</view>
+        <view class="font30 fontb mtb20">{{balance}}</view>
+        <navigator url="/pages/user/moneyPackege/recharge/index" class="btn">充值</navigator>
+    </view>
+    <view class="lists plr20">
+        <view class="label font14 col6 plr20 ptb30">消费记录</view>
+        <view class="list border-r2 bw ptb20 plr40 flex_sb mb20 font15" wx:for="{{recordsList}}" wx:key>
+            <view class="message">
+                <view class="title">{{item.name}}</view>
+                <view class="time font12 col9">{{item.ctime}}</view>
+            </view>
+            <view class="price {{item.type==1?'plus':'reduce'}}">
+                {{(item.type==1 || item.type==4)?'+':'-'}}{{item.money}}
+            </view>
+        </view>
+        <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

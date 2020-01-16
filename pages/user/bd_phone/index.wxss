@@ -1,0 +1,24 @@
+/* pages/user/bd_phone/index.wxss */
+@import '/css/main.wxss';
+page{
+  background: #fff;
+}
+.logo_box image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.phone{
+  width: 24rpx;
+  height: 32rpx;
+}
+.code{
+  width: 30rpx;
+  height: 30rpx;
+}
+.get_code{
+  width: 170rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 44rpx;
+}

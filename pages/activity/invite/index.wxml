@@ -1,0 +1,26 @@
+<import src="../../user/wxParse/wxParse" />
+<view id="invite" class="ptb30 plr30">
+    <view class="border-r2 bw ptb30 plr30">
+        <view class="tac font14 fontb">{{activeData.name}}</view>
+        <image class="img" src="{{activeData.img}}" mode="widthFix"></image>
+        <!-- <image class="img mtb30" src="../../../img/bg1.png" mode="widthFix"></image> -->
+        <view class="reward font14">
+            <view class="title">活动奖励</view>
+            <view class="rewardList flex_sb col9 mt15 font12" wx:for="{{activeData.goods}}" wx:key>
+                <view>{{item.goods_title}}({{item.num}}份,兑换有效期{{item.eday}}天)</view>
+                <view>￥{{item.price}}</view>
+            </view>
+            <view class="tae mt20 color7">剩余数量：{{activeData.surplus}}份</view>
+        </view>
+        <view class="rule font14">
+            <view class="title mt40 mb20">活动规则</view>
+            <view class="font12">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            </view>
+        </view>
+        <navigator class="btn" url="/pages/activity/join/index?id={{activeData.id}}">
+            我要参与
+        </navigator>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent" />

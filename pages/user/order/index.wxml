@@ -1,0 +1,132 @@
+<view class='bgf5 tab_box flex_a pos_f_t'>
+    <view class="swiper-tab">
+        <block wx:for='{{tab_list}}' wx:key>
+            <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">
+                {{item}}
+            </view>
+        </block>
+    </view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 55 }}px" bindchange="bindChange">
+    <swiper-item class="swiper-one" style='overflow-y:scroll;'>
+        <view wx:if="{{currentTab == 0}}">
+            <block wx:for='{{list}}' wx:key>
+                <view class="mb20">
+                    <view class="font14 h80 flex_sb bw plr24">
+                        <text class="col9">订单编号:{{item.order_no}}</text>
+                        <text class="col-63" wx:if="{{item.status == 3 }}">已完成</text>
+                        <text class="col9" wx:if="{{item.status == -2 }}">异常</text>
+                        <text class="col9" wx:if="{{item.status == -1 }}">出货失败</text>
+                        <text class="col9" wx:if="{{item.status == 2 }}">已支付</text>
+                        <text class="col9" wx:if="{{item.status == 1 }}">待支付</text>
+                        <text class="col9" wx:if="{{item.status == -5 }}">退款失败</text>
+                    </view>
+                    <navigator url="/pages/user/order_detail/index?order_id={{item.order_id}}&type=2" class="ptb30 plr24 flex bgfa">
+                        <view class="goods_logo_box">
+                            <image src="{{item.goods_data.img}}"></image>
+                        </view>
+                        <view class="ml40 flex_sbc flex1">
+                            <view class="font14 col3">{{item.goods_data.title}}</view>
+                            <view class="font12 col9">￥{{item.goods_data.price}}</view>
+                        </view>
+                        <view class="font12 col9 flex_a">
+                            <text>x{{item.goods_data.num}}</text>
+                        </view>
+                    </navigator>
+                    <view class="font14 col3 h80 lh80 tae plr24 bw">
+                        共{{item.goods_num}}件商品 合计：￥{{item.real_money}}
+                    </view>
+                </view>
+            </block>
+            <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+        </view>
+    </swiper-item>
+    <swiper-item class="swiper-one" style='overflow-y:scroll;'>
+        <view wx:if="{{currentTab == 1}}">
+            <block wx:for='{{list}}' wx:key>
+                <view class="mb20">
+                    <view class="font14 h80 flex_sb bw plr24">
+                        <text class="col9">订单编号:{{item.order_no}}</text>
+                        <text class="col9" wx:if="{{item.status == -1 }}">已失效</text>
+                        <text class="color4" wx:if="{{item.status == 1 }}">待支付</text>
+                        <text class="color4" wx:if="{{item.status == 2 }}">待发货</text>
+                        <text class="color4" wx:if="{{item.status == 3 }}">已发货</text>
+                        <text class="col-63" wx:if="{{item.status == 4 }}">已完成</text>
+                        <text class="color2" wx:if="{{item.status == -8 }}">退款中</text>
+                        <text class="col9" wx:if="{{item.status == -10 }}">已退款</text>
+                        <text class="col9" wx:if="{{item.status == -9 }}">退款失败</text>
+                    </view>
+                    <navigator url="/pages/user/order_detail/index?order_id={{item.order_id}}&type=1" class="plr24 bgfa detail_box">
+                        <block wx:for="{{item.goods_data}}" wx:key>
+                            <view class="flex ptb30">
+                                <view class="goods_logo_box">
+                                    <image src="{{item.img}}"></image>
+                                </view>
+                                <view class="ml40 flex_sbc flex1">
+                                    <view class="font14 col3">{{item.title}}</view>
+                                    <view class="font12 col9">￥{{item.price}}</view>
+                                </view>
+                                <view class="font12 col9 flex_a">
+                                    <text>x{{item.num}}</text>
+                                </view>
+                            </view>
+                        </block>
+                    </navigator>
+                    <view class="font14 col3 h80 lh80 tae plr24 bw">
+                        共{{item.goods_num}}件商品 合计：￥{{item.real_money}}
+                    </view>
+                    <view class="font14 col3 h80 lh80 tae plr24 bw bdt"  wx:if="{{item.status == 3 }}">
+                        <view class="money_btn font12 col3 btn" bindtap="cash_btn" data-order_id="{{item.order_id}}">申请退款</view>
+                    </view>
+                </view>
+            </block>
+            <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+        </view>
+    </swiper-item>
+    <swiper-item class="swiper-one" style='overflow-y:scroll;'>
+        <view wx:if="{{currentTab == 2}}">
+            <block wx:for='{{list}}' wx:key>
+                <view class="mb20">
+                    <view class="font14 h80 flex_sb bw plr24">
+                        <text class="col9">订单编号:{{item.order_no}}</text>
+                        <text class="col9" wx:if="{{item.status == -1 }}">已失效</text>
+                        <text class="color4" wx:if="{{item.status == 1 }}">待支付</text>
+                        <text class="col-63" wx:if="{{item.status == 4 }}">已完成</text>
+                    </view>
+                    <navigator url="/pages/user/order_detail/index?order_id={{item.order_id}}&type=3" class="ptb30 plr24 flex bgfa">
+                        <!-- <block wx:for="{{item.goods_data}}" wx:key> -->
+                        <view class="goods_logo_box">
+                            <image src="{{item.goods_data.img}}"></image>
+                        </view>
+                        <view class="ml40 flex_sbc flex1">
+                            <view class="font14 col3">{{item.goods_data.title}}</view>
+                            <view class="font12 col9">￥{{item.goods_data.price}}</view>
+                        </view>
+                        <view class="font12 col9 flex_a">
+                            <text>x{{item.goods_data.num}}</text>
+                        </view>
+                        <!-- </block> -->
+                    </navigator>
+                </view>
+            </block>
+            <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+        </view>
+    </swiper-item>
+</swiper>
+<view wx-if="{{is_show}}">
+    <view class="mask"></view>
+    <view class="close_win">
+        <view class="bw plr30 pt30 pb40 border-r1">
+            <view class="border-r1 plr40 ptb30 bgf5 mb40">
+                <textarea placeholder="请输入退款理由..." class="font14 col9 w100 h250" bindinput="reason"></textarea>
+            </view>
+            <view class="confirm" style="border-radius: 10rpx;width: 100%" bindtap="to_apply">
+                确认申请
+            </view>
+        </view>
+        <view class="tac mt40">
+            <image src="/img/ic_close.png" class="ic_close_logo" bindtap="close_click"></image>
+        </view>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

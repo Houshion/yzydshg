@@ -1,0 +1,23 @@
+@import '/css/main.wxss';
+.input_box{
+    height: 160rpx;
+}
+.min_box{
+    position: absolute;
+    right: 0;
+    bottom: 20rpx;
+}
+.dataTip_logo{
+    width: 120rpx;
+    height: 128rpx;
+}
+.add_goods_btn{
+    width: 170rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    text-align: center;
+}
+.space_box{
+    width: 166rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "login-component": "/components/login-component/login-component"
+  },
+  "navigationBarTitleText": "兑换码"
+}

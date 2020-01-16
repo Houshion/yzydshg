@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/user/index/index",
+    "pages/login/index",
+    "pages/charge/detail/index",
+    "pages/charge/student/index",
+    "pages/charge/share/index",
+    "pages/user/order_pay/index",
+    "pages/charge/index/index",
+    "pages/activity/buy_package/index",
+    "pages/user/order/index",
+    "pages/user/signIn/index",
+    "pages/user/feedback/index",
+    "pages/user/message/index",
+    "pages/activity/register/index",
+    "pages/charge/record/index",
+    "pages/user/center/index",
+    "pages/user/moneyPackege/recharge/index",
+    "pages/user/confirm_order/index",
+    "pages/user/login/index",
+    "pages/activity/join/index",
+    "pages/activity/invite/index",
+    "pages/user/exchange_code/index",
+    "pages/user/bd_phone/index",
+    "pages/user/moneyPackege/my/index",
+    "pages/user/exchange_code/detail/index",
+    "pages/replenishment/add_list/index",
+    "pages/replenishment/goods_list/index",
+    "pages/replenishment/device_list/index",
+    "pages/user/goods_detail/index",
+    "pages/user/edit_address/index",
+    "pages/user/add_address/index",
+    "pages/user/agreement/index",
+    "pages/user/order_detail/index",
+    "pages/charge/withdraw_cash/index",
+    "pages/replenishment/putaway/index",
+    "pages/charge/device_list/index",
+    "pages/charge/amend_password/index",
+    "pages/charge/feedback/index",
+    "pages/charge/perfect_information/index",
+    "pages/replenishment/success/index",
+    "pages/replenishment/act_device/index",
+    "pages/replenishment/manage_aisle/index",
+    "pages/forgot_password/index",
+    "pages/user/amend_phone2/index",
+    "pages/user/amend_phone/index",
+    "pages/user/center_data/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "健身房售卖机",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ffcc00",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/user/index/index",
+        "iconPath": "img/icon1.png",
+        "selectedIconPath": "img/icon1_a.png",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/user/center/index",
+        "iconPath": "img/icon2.png",
+        "selectedIconPath": "img/icon2_a.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,40 @@
+@import '/css/main.wxss';
+
+#recharge .chargeList {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around */
+}
+
+#recharge .chargeList .listBox {
+    border: 1px solid #472d22;
+    color: #472d22;
+    border-radius: 10rpx;
+    width: 32%;
+    margin: 10rpx 2% 10rpx 0;
+    text-align: center;
+    padding: 20rpx;
+    font-size: 24rpx
+}
+
+#recharge .chargeList .listBox.active {
+    border-color: #ffcc00;
+    background: #ffcc00
+}
+
+#recharge .chargeList .listBox:nth-child(3n) {
+    margin-right: 0
+}
+
+#recharge .submitBtn {
+    background: #ffcc00;
+    color: #ffffff;
+    border-radius: 50rpx;
+    padding: 15rpx;
+    width: 80%;
+    margin: 50rpx auto 0;
+    text-align: center;
+}
+#recharge .submitBtn:active{
+    background: #ccc;
+}

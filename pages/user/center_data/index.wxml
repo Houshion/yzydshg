@@ -1,0 +1,15 @@
+<view class="ptb30 font12 col9 plr30">账户资料</view>
+<view class="plr30 bw">
+    <view  class="h100 flex_sb font14 bdb" bindtap="is_phone">
+        <text class="col3">账户手机号码</text>
+        <view class="flex_a">
+            <text class="col9 mr20">{{center_obj.mobile}}</text>
+            <image src="/img/right.png" class="arrow_right"></image>
+        </view>
+    </view>
+    <view class="h100 flex_sb font14">
+        <text class="col3">推荐人</text>
+        <text class="col9">{{ center_obj.pid ? center_obj.pid : '无'}}</text>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

@@ -1,0 +1,21 @@
+<view class="ptb20 pos_f_t bgf5" wx:if="{{ type == 1 }}">
+    <view class="flex_a col9 font15 bw tab_box ptb20">
+        <block wx:for="{{tab}}" wx:key="{{index}}">
+            <view class="h50 flex_aj flex1 {{o_index == index ? 'color1' : ''}}" bindtap="swichNav" data-current="{{index}}">{{item}}</view>
+        </block>
+    </view>
+</view>
+<view class="plr24 {{type == 1 ? 'pt_130' : 'pt20'}}">
+    <block wx:for='{{list}}' wx:key>
+    <view class="ptb30 plr40 border-r1 flex_sb bw mb20">
+        <view>
+            <view class="col3 font14" wx:if="{{o_index == 0}}">{{item.obj_name+ '('+ item.coach_name+')'}}</view>
+            <view class="col3 font14" wx:else>{{item.obj_name}}</view>
+            <view class="col9 font12 mt15">{{item.ctime}}</view>
+        </view>
+        <text class="font12 col9">-￥{{item.total_money}}</text>
+        <view class="font20 color5">{{item.state == 1 ? '+' : '-'}}{{item.income_money}}<text class="font12">（{{item.ratio}}）</text></view>
+    </view>
+    </block>
+    <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+</view>

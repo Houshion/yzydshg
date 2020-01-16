@@ -1,0 +1,32 @@
+@import '/css/main.wxss';
+.box_top >view + view{
+    margin-top: 25rpx;
+}
+.top_logo{
+    width:18rpx;
+    height: 18rpx;
+    position: absolute;
+    transform: translate(-55%,0);
+    top: 10%;
+    left: 50%;
+}
+.round_box{
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background-color: #ccc;
+    position: absolute;
+    transform: translate(-55%,0);
+    top: 0;
+    left: 50%;
+    /*margin-left: -8rpx;*/
+}
+.timeLine{
+    width:1px;
+    height:100%;
+    flex:1;
+}
+.left_box{
+    width: 80rpx;
+    text-align: right;
+}

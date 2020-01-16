@@ -1,0 +1,5 @@
+@import '/css/main.wxss';
+._box{
+    display: inline-block;
+    width: 180rpx;
+}

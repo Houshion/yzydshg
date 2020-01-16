@@ -1,0 +1,4 @@
+<view class='logo_box ptb150 tac'>
+    <image src="/img/success.png"></image>
+    <view class="col3 font16 mt40">激活成功</view>
+</view>

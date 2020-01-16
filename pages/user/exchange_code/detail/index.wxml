@@ -1,0 +1,35 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='bgf5 ptb30 plr30'>
+    <view class="bw code tac ptb60">
+        <view>兑换码</view>
+        <view class="num">{{dataInfo.code}}</view>
+    </view>
+    <view class="dashed"></view>
+    <view class="bw code ptb30 plr30">
+        <view class="mb20 ptb60">
+            <view class="font14 h80 flex_sb bw plr24">
+                <text class="col9">{{dataInfo.code_title}}</text>
+                <text class="color4">未兑换</text>
+            </view>
+            <view class="ptb30 plr24 flex bgfa">
+                <view class="goods_logo_box">
+                    <image src="{{dataInfo.img}}"></image>
+                </view>
+                <view class="ml40 flex_sbc flex1">
+                    <view class="font14 col3">{{dataInfo.goods_title}}</view>
+                    <view class="font12 col9">有效期：{{dataInfo.etime}}</view>
+                </view>
+                <view class="font12 col9 flex_a">
+                    <text>x{{dataInfo.num}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="col9">
+            <view class="mb10">使用规则</view>
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            <!-- <view class="mb10">1.使用机型：AV那是了空间看教案扣水电费</view>
+            <view class="mb10">2.使用方法：爱UNV领看见爱好是邓丽君咖啡手机号安科技是东方红</view> -->
+        </view>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

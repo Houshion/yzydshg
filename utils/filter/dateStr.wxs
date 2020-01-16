@@ -1,0 +1,64 @@
+var DateFr = {
+
+    getDate: function (time, dw) {
+        var theTime = parseInt(time)
+        var theTime1 = 0
+        var theTime2 = 0
+        var result
+        if (theTime > 60) {
+            theTime1 = parseInt(theTime / 60)
+            theTime = parseInt(theTime % 60)
+            if (theTime1 > 60) {
+                theTime2 = parseInt(theTime1 / 60)
+                theTime1 = parseInt(theTime1 % 60)
+            }
+        }
+        if (dw && dw == "cn") {
+            result = '' + parseInt(theTime) + '秒'
+            if (theTime1 > 0) {
+                result = '' + parseInt(theTime1) + '分' + result
+            }
+            if (theTime2 > 0) {
+                result = '' + parseInt(theTime2) + '小时' + result
+            }
+        } else if (dw && dw != "cn") {
+            result = '' + parseInt(theTime)
+            if (theTime1 > 0) {
+                result = '' + parseInt(theTime1) + dw + result
+            }
+            if (theTime2 > 0) {
+                result = '' + parseInt(theTime2) + dw + result
+            }
+        } else {
+            result = '' + (parseInt(theTime) < 10 ? "0" + theTime : parseInt(theTime))
+            if (theTime1 > 0) {
+                result = '' + (parseInt(theTime1) < 10 ? "0" + theTime1 : parseInt(theTime1)) + ':' + result
+            }
+            if (theTime2 > 0) {
+                result = '' + (parseInt(theTime2) < 10 ? "0" + theTime2 : parseInt(theTime2)) + ':' + result
+            }
+        }
+        return result
+    },
+    changeTime: function (time, type) {
+        if (type === "date") {
+            var times = time.split(" ")[0];
+            return times.split("-")[1] + "-" + times.split("-")[2]
+        } else if (type === "time") {
+            return time.split(" ")[1]
+        }
+    },
+    changeTimeStr: function (time, type) {
+        if (type === "date") {
+            return time.split(" ")[0]
+        } else {
+            return time.split(" ")[1]
+        }
+    }
+}
+
+module.exports = {
+    getDate: DateFr.getDate,
+    changeTime: DateFr.changeTime,
+    changeTimeStr: DateFr.changeTimeStr,
+}

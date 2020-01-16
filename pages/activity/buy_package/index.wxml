@@ -1,0 +1,30 @@
+<import src="../../user/wxParse/wxParse" />
+<view id="invite" class="ptb30 plr30">
+    <view class="border-r2 bw ptb30 plr30">
+        <view class="tac font14 fontb">{{activeData.title}}</view>
+        <image class="img" src="{{activeData.img}}" mode="widthFix"></image>
+        <!-- <image class="img mtb30" src="../../../img/bg1.png" mode="widthFix"></image> -->
+        <view class="price flex_ac font12">
+            <view class="color2 mr20 mtb30">
+                ￥
+                <span class="font20">{{activeData.price}}</span>
+            </view>
+            <view class="font12 col9">市场价￥{{activeData.o_price}}</view>
+        </view>
+        <view class="reward font14">
+            <view class="title">活动奖励</view>
+            <view class="rewardList flex_sb col9 mt15 font12" wx:for="{{activeData.goods_list}}" wx:key>
+                <view>{{item.goods_title}}({{item.num}}份,兑换有效期{{item.end_day}}天)</view>
+                <view>￥{{item.goods_price}}</view>
+            </view>
+        </view>
+        <view class="rule font14">
+            <view class="title mt40 mb20">活动规则</view>
+            <view class="font12">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            </view>
+        </view>
+        <view class="btn" bind:tap="payBtn">支付</view>
+    </view>
+</view>
+<login-component bind:myevent="listeningEvent" />

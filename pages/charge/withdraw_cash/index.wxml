@@ -1,0 +1,71 @@
+<view class="pt20">
+    <view class="mlr24 plr40 bw border-r1 pt50 pb80">
+        <view class="col0 font14">提现金额</view>
+        <view class="flex_a bdb pos_r">
+            <text class="col0 font24 mr20">￥</text>
+            <input type="digit" class="font24 col0 input_box flex1" focus="true" value="{{moneyValue}}" bindinput="money_input" />
+            <view class="col9 font14 min_box">
+                （最低提现 {{bank_info.minimum}}，手续费{{(bank_info.commission)}}%）
+            </view>
+        </view>
+        <view class="flex_sb font14 pt30 mb20">
+            <text class="col9">可提现金额：{{sumMoney}}</text>
+            <text class="color1" bindtap="all_btn">全部提现</text>
+        </view>
+        <view class="col9 font12 bgf5 border-r1 ptb30 plr24 tiXianBox" wx:if="{{moneyValue >= minMoney}}">
+            <view class="flex_sb mb10">
+                <text class="ellipsis">申请金额：￥{{moneyValue}}</text>
+                <text class="ellipsis">到账金额：￥{{book_value}}</text>
+            </view>
+            <text>手续费：￥{{poundage}}（{{(bank_info.commission)}}%）</text>
+        </view>
+    </view>
+</view>
+<view class="mlr24 plr40 bw border-r1 pt50 mt20">
+    <view class="col0 font14">提现账户</view>
+    <view class="tac mt80"  wx:if="{{bank_info.is_pass==3}}">
+        <image src="/img/dataTip.png" class="dataTip_logo"></image>
+        <view class="font12 col9 mt40">暂无账户，请完善</view>
+        <view class="flex_j mt80 pb40">
+            <navigator url="/pages/charge/perfect_information/index" class="font14 add_goods_btn col-5b btn border-5b">
+                完善
+            </navigator>
+        </view>
+    </view>
+    <view class="mt40">
+        <view class="font12"  wx:if="{{bank_info.is_pass == 1 || bank_info.is_pass == 0}}">
+            <view class="flex_a mb20">
+                <view class="col9 space_box">收款人</view>
+                <view class="col3">{{bank_info.identity_name}}</view>
+            </view>
+            <view class="flex_a mb20">
+                <view class="col9 space_box">身份证号</view>
+                <view class="col3">{{bank_info.identity_card}}</view>
+            </view>
+            <view class="flex_a mb20">
+                <view class="col9 space_box">开户银行</view>
+                <view class="col3">{{bank_info.bank_name}}</view>
+            </view>
+            <view class="flex_a mb20">
+                <view class="col9 space_box">开户支行</view>
+                <view class="col3">{{bank_info.bank_name_son}}</view>
+            </view>
+            <view class="flex_a mb20">
+                <view class="col9 space_box">银行卡号</view>
+                <view class="col3">{{bank_info.bank_num}}</view>
+            </view>
+        </view>
+        <view class="flex_j mt80 pb40">
+            <navigator url="/pages/charge/perfect_information/index" class="font14 add_goods_btn col-5b btn border-5b" wx:if="{{bank_info.is_pass==-1}}">
+                审核失败
+            </navigator>
+            <view class="font14 add_goods_btn col-5b btn border-5b" wx:if="{{bank_info.is_pass==0}}">
+                审核中
+            </view>
+        </view>
+    </view>
+</view>
+<view class="mtb80">
+    <view class="confirm" bindtap="confirm_btn"  wx:if="{{bank_info.is_pass== 1}}">提现</view>
+    <view class="confirm" style="background: #ccc;" wx:if="{{bank_info.is_pass != 1}}">提现</view>
+</view>

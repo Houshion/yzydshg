@@ -1,0 +1,62 @@
+<import src="../wxParse/wxParse" />
+<view id="signIn">
+  <view class="header">
+    <view class="scanSign">
+      <image wx:if="{{!status}}" class="btn" src="../../../img/sign_btn.png" mode="widthFix" bindtap="scanSignIn" hover-class="none"></image>
+      <image wx:else class="btn" src="../../../img/sign_btn_success.png" mode="widthFix"></image>
+      <view class="font13">连续签到{{signPageData.signday}}天，请继续加油哦</view>
+    </view>
+    <image class="bac" src="../../../img/sign_bac.png" mode="widthFix"></image>
+  </view>
+  <view class="signDate mt15 bw">
+    <view class="date {{item.status?'issign':''}}" wx:for="{{signDate}}" wx:key>
+      <view class="day">{{item.date}}</view>
+      <view class="name">{{item.status?'':item.name}}</view>
+      <view class="img" wx:if="{{item.status}}">
+        <image class="" src="../../../img/check.png" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+  <view class="mission mt15 bw plr20 ptb20">
+    <view class="title">
+      <view class="jl">奖励</view>
+      <view class="tj">条件</view>
+      <view class="zt">状态</view>
+    </view>
+    <view class="content">
+      <view class="list mt30" wx:for="{{signPageData.sign_in}}" wx:key>
+        <view class="jl">
+          <view>{{item.goods_title}}</view>
+        </view>
+        <view class="tj">
+          <view>连续签到{{item.days}}天</view>
+        </view>
+        <view class="zt">
+          <view wx:if="{{item.status==1}}" class="y" bind:tap="getPrize" data-id="{{item.id}}">领取</view>
+          <view wx:else class="{{item.status==0?'n':''}}">
+            {{item.status==2?"已领取":"未达标"}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="mt20 ptb20 plr20 tips bw">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+  <view class="cover" wx:if="{{show}}">
+    <view class="logo">
+      <image src="../../../img/sign_logo.png" mode="widthFix"></image>
+    </view>
+    <view class="content bw border-r3 col9 font15">
+      <image src="../../../img/success.png" mode="widthFix"></image>
+      <view class="font20">签到成功</view>
+      <view>已连续签到{{signSuccess.signday}}天</view>
+      <view class="mt20">再签到{{signSuccess.next}}天就可以拿{{signSuccess.goods_title}}</view>
+      <!-- <view>本周全部签完就可以拿完白粉去坐牢了……加油哦</view> -->
+    </view>
+    <view class="close tac">
+      <image src="../../../img/close.png" mode="widthFix" bind:tap="close"></image>
+    </view>
+  </view>
+</view>
+<login-component bind:myevent="listeningEvent" />

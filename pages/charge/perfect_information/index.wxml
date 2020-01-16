@@ -1,0 +1,13 @@
+<form bindsubmit="formSubmit">
+    <view class="pt20 plr24">
+        <block wx:for="{{list}}" wx:key>
+            <view class="h100 flex_a plr40 bw border-r1 mb20">
+                <view class="font14 col3 space_box">{{item.title}}</view>
+                <input type="{{item.type}}" class="font14 col9 flex1" placeholder="{{item.tip}}" name="{{item.name}}" value="{{item.value}}"/>
+            </view>
+        </block>
+    </view>
+    <view class="mt80">
+        <button form-type="submit" class="confirm ">保存</button>
+    </view>
+</form>

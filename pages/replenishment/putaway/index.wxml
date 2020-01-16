@@ -1,0 +1,64 @@
+<view >
+    <view class="pt20 pos_f_t bgf5">
+        <view class="ptb40 bw plr30 font12 ">
+            <view class="flex_sb mb20">
+                <view>
+                    <text class="col9 mr20">设备名称</text>
+                    <text class="col3">{{device_info.title}}</text>
+                </view>
+                <text class="color6" wx:if="{{device_info.device_status == 1}}">在线</text>
+                <text class="color4" wx:if="{{device_info.device_status == 0}}">离线</text>
+            </view>
+            <view class="flex_a mb20">
+                <text class="col9 mr20">设备编号</text>
+                <text class="col3">{{device_info.macno}}</text>
+            </view>
+            <view class="flex_sb">
+                <view>
+                    <text class="col9 mr20">设备地址</text>
+                    <text class="col3">{{device_info.address}}</text>
+                </view>
+                <text class="color5" wx:if="{{device_info.is_stockout == 1}}">需补货</text>
+            </view>
+        </view>
+        <view class="bw pl30  flex_a search_header mt20">
+            <view class="flex1 flex_a search_box plr30">
+                <image src="/img/search.png" class="search_img mr20"></image>
+                <input type="text" placeholder="请输入搜索的商品名称" class="h70 font14 col9 w100" bindinput="search_btn"/>
+            </view>
+            <text class="col3 font14 plr30 hh100  flex_a" bindtap="search_click">搜索</text>
+        </view>
+    </view>
+    <view  style="padding-bottom: 170rpx;padding-top: 376rpx">
+        <view>
+            <radio-group class="" bindchange="radioChange">
+                <block wx:for="{{list}}" wx:key wx:if="{{loading}}">
+                <label class="plr30 bw bdb ptb30 font12 flex" >
+                    <view>
+                        <image src="{{item.goods_image}}" class="list_logo"></image>
+                    </view>
+                    <view class="flex1 ml24 flex_sbc">
+                        <view>
+                            <text class="col9 mr20">商品名称</text>
+                            <text class="col3">{{item.title}}</text>
+                        </view>
+                        <view class="color5">￥{{item.price}}</view>
+                    </view>
+                    <view class="flex_a">
+                       <radio value="{{item.id}}"  color="#ffcc00"/>
+                    </view>
+                </label>
+                </block>
+                <block wx:if="{{!loading}}">
+                    <view class="tip">
+                        <image src="/img/empty.png"></image>
+                        <text>暂无数据</text>
+                    </view>
+                </block>
+            </radio-group>
+        </view>
+    </view>
+    <view class="tac ptb40 pos_f_b bgf5">
+        <view class="confirm" bindtap="up_click">上架</view>
+    </view>
+</view>

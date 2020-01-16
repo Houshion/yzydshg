@@ -1,0 +1,65 @@
+@import '/css/main.wxss';
+
+.top_image {
+    width: 100%;
+    height: 178rpx;
+}
+
+.top_box {
+    background: #ffffff;
+    width: 100%;
+    margin-bottom: 30rpx;
+    padding: 60rpx;
+    display: flex;
+}
+
+.logo_box {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    background-color: #e5e5e5;
+}
+
+.logo {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+}
+
+.msg {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.msg view {
+    width: 100%;
+    text-align: left;
+}
+
+.msg view.name {
+    font-size: 36rpx
+}
+
+.msg view.phone {
+    color: #bfbfbf
+}
+
+.signIn {
+    background: #472d22;
+    color: #ffffff;
+    padding: 10rpx 25rpx;
+    border-radius: 10rpx
+}
+
+.signIn image {
+    margin-right: 10rpx
+}
+
+.icon_logo {
+    width: 40rpx;
+}
+
+.sign_in_logo {
+    width: 36rpx
+}

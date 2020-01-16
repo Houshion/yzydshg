@@ -1,0 +1,74 @@
+@import '/css/main.wxss';
+
+.logo_box image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.problem_logo {
+  width: 24rpx;
+  height: 24rpx;
+  padding: 8rpx;
+}
+
+.img3_logo {
+  width: 5rpx;
+  height: 31rpx;
+}
+
+.add_goods_btn {
+  width: 130rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 44rpx;
+  text-align: center;
+}
+
+.order_box {
+  border-top: 1px dotted #e5e5e5;
+  width: 100%;
+}
+
+.order_box>view, .seller_box>view, .other_box>view {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding-bottom: 40rpx;
+}
+
+.seller_box, .other_box {
+  display: inline-block;
+  width: 100% !important;
+  text-align: center;
+  padding-bottom: 40rpx;
+}
+
+.record_logo {
+  width: 31rpx;
+}
+
+.record_box>navigator + navigator {
+  border-top: 1px solid #e5e5e5;
+}
+
+.step_logo {
+  width: 278rpx;
+  height: 173rpx;
+}
+
+.money_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: 95rpx;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  border-radius: 0;
+  background-color: #fff;
+}

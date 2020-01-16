@@ -1,0 +1,25 @@
+<wxs module="dateFr" src="../../../utils/filter/dateStr.wxs"></wxs>
+<view class="">
+    <view class="flex_a col9 font12 tab_box bw pos_f_t" >
+        <view>申请时间</view>
+        <view>提现金额</view>
+        <view>手续费</view>
+        <view>到账金额</view>
+        <view>状态</view>
+    </view>
+    <view class="pt120">
+        <block wx:for='{{list}}' wx:key>
+        <view class="list col3 font12 flex_a bw">
+            <view class="flex_d">
+                <view>{{dateFr.changeTimeStr(item.ctime,'date')}}</view>
+                <view> {{dateFr.changeTimeStr(item.ctime,'time')}}</view>
+            </view>
+            <view>￥{{item.total_money}}</view>
+            <view>￥{{item.commission}}</view>
+            <view>￥{{item.real_money}}</view>
+            <view class="{{item.status==1?'color1':item.status==2?'color6':'color5'}}">{{item.status==1?'审核中':item.status==2?'已完成':'失败'}}</view>
+        </view>
+        </block>
+        <view class='tac lh80 col9' wx:if='{{lock}}'>暂无更多数据</view>
+    </view>
+</view>

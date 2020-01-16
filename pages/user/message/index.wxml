@@ -1,0 +1,38 @@
+<wxs module="dateFr" src="../../../utils/filter/dateStr.wxs"></wxs>
+<view class="font12 col3 bgc1 plr24 ptb40 box_top">
+    <view>
+        <text>配送企业：</text>
+        <text>{{message.company}}</text>
+    </view>
+    <view>
+        <text>快递单号：</text>
+        <text>{{message.express_num}}</text>
+    </view>
+    <!-- <view>
+        <text>联系电话：</text>
+        <text>951236</text>
+    </view> -->
+</view>
+<view class="mt20 plr24 ptb40 bw main_box">
+    <view wx:if="{{message.detail.data}}">
+        <block wx:for="{{ message.detail.data }}" wx:key wx:for-index="index">
+            <view class="{{index==0 ? 'col3' : 'col9'}} flex ">
+                <view class="left_box">
+                    <view class="font12">{{dateFr.changeTime(item.time,'date')}}</view>
+                    <view class="font10 mb10">{{dateFr.changeTime(item.time,'time')}}</view>
+                </view>
+                <view class="flex_a flex_d mlr24 pos_r">
+                    <image src="/img/top.png" class="top_logo" wx:if="{{item.status != '签收'}}"></image>
+                    <view class="round_box" wx:else></view>
+                    <view class="timeLine bgc"></view>
+                </view>
+                <view class="font12 flex1 mb40">
+                    <view class="mb20">{{item.status}}</view>
+                    <view>{{ item.context}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:else class="font12 col9">{{message.detail.message}}</view>
+</view>
+<login-component bind:myevent="listeningEvent"/>

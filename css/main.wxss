@@ -1,0 +1,49 @@
+@import '/css/common.wxss';
+
+.confirm{
+    display: block;
+    width: 620rpx;
+    margin: 0 auto;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 48rpx;
+    color: #fff;
+    border: none;
+    font-size: 32rpx;
+    text-align: center;
+    background: #ffcc00;
+}
+.confirm:active{
+  background: #e5e5e5;
+}
+.hover_class{
+  background: #ccc;
+}
+.btn_box{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+}
+.bg-5b{
+    background-color: #5b4900;
+}
+.col-5b{
+    color: #5b4900;
+}
+.border-5b{
+    border:1px solid #5b4900;
+}
+.bg-63{
+    background-color: #637e3d;
+}
+.col-63{
+    color: #637e3d;
+}
+.border-63{
+    border:1px solid #637e3d;
+}
+.bgfa{
+    background-color: #fafafa;
+}
